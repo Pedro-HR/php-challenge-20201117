@@ -1,0 +1,238 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Laravel OpenApi Demo Documentation",
+        "description": "L5 Swagger OpenApi description",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "localhost",
+            "description": "Demo API Server"
+        }
+    ],
+    "paths": {
+        "/": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Return a Status: 200 and a Message 'PHP Challenge 20201117'",
+                "operationId": "45cf995c30844db279a7f4221742e6ab",
+                "responses": {
+                    "200": {
+                        "description": "PHP Challenge 20201117"
+                    }
+                }
+            }
+        },
+        "/products": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Get list of products",
+                "operationId": "c1ff6f862214e1896c59cfe0491ce0e8",
+                "responses": {
+                    "200": {
+                        "description": "An example collection resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "code": {
+                                            "type": "string",
+                                            "example": "AwxzVlE8YW7Yed8"
+                                        },
+                                        "title": {
+                                            "type": "string",
+                                            "example": "Hazelnut in black ceramic bowllll"
+                                        },
+                                        "type": {
+                                            "type": "string",
+                                            "example": "vegetable"
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "example": "Hazelnut in black ceramic bowl on old wooden background. forest wealth. rustic style. selective focus"
+                                        },
+                                        "filename": {
+                                            "type": "string",
+                                            "example": "7.jpg"
+                                        },
+                                        "height": {
+                                            "type": "integer",
+                                            "example": "450"
+                                        },
+                                        "width": {
+                                            "type": "integer",
+                                            "example": "301"
+                                        },
+                                        "price": {
+                                            "type": "number",
+                                            "format": "float",
+                                            "example": "27.7"
+                                        },
+                                        "rating": {
+                                            "type": "integer",
+                                            "example": "0"
+                                        },
+                                        "date": {
+                                            "type": "string",
+                                            "example": "09/04/2022"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "The endpoint will process the products.json file that will be sent by the Web Project",
+                "operationId": "399770d33fa4672f1216707d0e236763",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "products-file": {
+                                        "type": "file"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Products saved successfully!"
+                    }
+                }
+            }
+        },
+        "/products/{$id}": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Obtain information from only one product from the database",
+                "operationId": "c9b49a58bf2946b2b6de06d5ebdef1ae",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Product Hash",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An example resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "code": {
+                                            "type": "string",
+                                            "example": "AwxzVlE8YW7Yed8"
+                                        },
+                                        "title": {
+                                            "type": "string",
+                                            "example": "Hazelnut in black ceramic bowllll"
+                                        },
+                                        "type": {
+                                            "type": "string",
+                                            "example": "vegetable"
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "example": "Hazelnut in black ceramic bowl on old wooden background. forest wealth. rustic style. selective focus"
+                                        },
+                                        "filename": {
+                                            "type": "string",
+                                            "example": "7.jpg"
+                                        },
+                                        "height": {
+                                            "type": "integer",
+                                            "example": "450"
+                                        },
+                                        "width": {
+                                            "type": "integer",
+                                            "example": "301"
+                                        },
+                                        "price": {
+                                            "type": "number",
+                                            "format": "float",
+                                            "example": "27.7"
+                                        },
+                                        "rating": {
+                                            "type": "integer",
+                                            "example": "0"
+                                        },
+                                        "date": {
+                                            "type": "string",
+                                            "example": "09/04/2022"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Will be responsible for receiving updates made to the Web Project",
+                "operationId": "6aea5ae106a009c30df5608355dcc6dc",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Product Hash",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Product successfully updated!"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Get list of products",
+                "description": "Remove product from database",
+                "operationId": "25a9d521b4913831c8bc87bf7a6e21fe",
+                "responses": {
+                    "200": {
+                        "description": "Product successfully removed!"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Products",
+            "description": "API Endpoints of Products"
+        }
+    ]
+}
