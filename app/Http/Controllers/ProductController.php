@@ -111,7 +111,7 @@ class ProductController extends Controller
         ]);
 
         // Salva os produtos
-//        $this->productService->storeProducts($data);
+        $this->productService->storeProducts($data);
 
         return response()->json(['messege' => 'Products saved successfully!'], Response::HTTP_OK);
     }
